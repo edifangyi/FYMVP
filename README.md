@@ -39,7 +39,6 @@ android {
 
 ## Usage
 > 没想好怎么写，自己先看Demo吧
-[<img src="http://ss1.sinaimg.cn/large/648b709cly1fntv7f388wj206j031q2s.jpg" width="80" height="80">]
 
 
 ## Functionality & Libraries
