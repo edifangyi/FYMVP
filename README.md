@@ -6,17 +6,17 @@
 
 * repositories 
 ```groovy
-	allprojects {
-	     repositories {
-	          ...
-	          maven { url "https://jitpack.io" }
-	     }
-	}
+allprojects {
+     repositories {
+	  ...
+	  maven { url "https://jitpack.io" }
+     }
+}
 ```
 
 * Gradle
 ```groovy
-	compile 'com.github.edifangyi:FYMVP:-SNAPSHOT'
+compile 'com.github.edifangyi:FYMVP:-SNAPSHOT'
 ```
 
 ## Usage
@@ -25,18 +25,17 @@
 * 因为框架内依赖了 ButterKnife ，故你的项目在依赖框架后，需要在你的 主Module 的 build.gradle 中添加
 
 ```groovy
-	android {
-	    ...
-	    defaultConfig {
-	        ...
-	        javaCompileOptions {
-	            annotationProcessorOptions {
-	                includeCompileClasspath true
-	            }
-	        }
+android {
+    ...
+    defaultConfig {
+	...
+	javaCompileOptions {
+	    annotationProcessorOptions {
+		includeCompileClasspath true
 	    }
 	}
-
+    }
+}
 ```
 
 ## Functionality & Libraries
