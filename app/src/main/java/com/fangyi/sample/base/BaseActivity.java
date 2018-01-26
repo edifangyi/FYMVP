@@ -4,7 +4,7 @@ import android.widget.Toast;
 
 import com.fangyi.fymvp.base.BaseModel;
 import com.fangyi.fymvp.base.BasePresenter;
-import com.fangyi.fymvp.base.IView;
+import com.fangyi.fymvp.mvp.IView;
 import com.fangyi.fymvp.base.MvpBaseActivity;
 
 /**
