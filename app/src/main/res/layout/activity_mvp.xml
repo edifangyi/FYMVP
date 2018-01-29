@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btn_success"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="请求网络成功" />
+
+    <Button
+        android:id="@+id/btn_error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="请求网络失败（已知错误码）" />
+
+    <Button
+        android:id="@+id/btn_error_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="请求网络失败（未知原因，错误由服务器提供）" />
+
+
+    <Button
+        android:id="@+id/btn_rx2_success"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Rx2请求网络成功" />
+
+
+    <Button
+        android:id="@+id/btn_rx2_error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Rx2请求网络失败" />
+
+    <Button
+        android:id="@+id/btn_rxbus_post"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="RxBus发送" />
+
+
+    <TextView
+        android:id="@+id/tv_white_board"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>
