@@ -5,7 +5,6 @@ import com.fangyi.fymvp.basebean.BaseResponse;
 import com.fangyi.fymvp.mvp.IModel;
 import com.fangyi.fymvp.mvp.IView;
 import com.fangyi.sample.mvp.bean.LoginBean;
-import com.lzy.okgo.request.GetRequest;
 
 import java.util.Map;
 
@@ -24,16 +23,22 @@ public interface MVPContract {
 
     //Model层定义接口,外部只需关心Model返回的数据,无需关心内部细节,即是否使用缓存
     interface Model extends IModel {
-        GetRequest<BaseResponse<LoginBean>> doSuccess(Map<String, String> stringStringMap);
+
+
+        void doSuccer(String doSuccess, Map<String, String> stringStringMap, IModel.Listener<BaseResponse<LoginBean>> listener);
+
+
     }
 
     //方法
     abstract class Presenter extends BasePresenter<View, Model> {
 
-        public abstract void doSuccess(String name, String password);
+        public abstract void doSuccess(String name, String password) throws Throwable;
 
         public abstract void doError(String name, String password);
 
         public abstract void doRx2Success(String name, String password);
     }
+
+
 }

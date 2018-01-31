@@ -25,7 +25,8 @@ public abstract class SimpleBaseFragment extends Fragment {
     protected SimpleBaseActivity mActivity;
     public Context mContext;
 
-    private Unbinder unbinder;
+    private Unbinder mUnbinder;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -36,20 +37,21 @@ public abstract class SimpleBaseFragment extends Fragment {
         mContext = getActivity();
 
 
-        unbinder = ButterKnife.bind(this, rootView);
+        mUnbinder = ButterKnife.bind(this, rootView);
         init(savedInstanceState);
 
         return rootView;
     }
 
+    protected abstract int getLayoutId();
+
     protected abstract void init(Bundle savedInstanceState);
 
-    protected abstract int getLayoutId();
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        if (unbinder != Unbinder.EMPTY) unbinder.unbind();
-        unbinder = null;
+        if (mUnbinder != Unbinder.EMPTY) mUnbinder.unbind();
+        mUnbinder = null;
     }
 }

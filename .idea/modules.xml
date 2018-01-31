@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/FYMVP.iml" filepath="$PROJECT_DIR$/FYMVP.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/fymvp/fymvp.iml" filepath="$PROJECT_DIR$/fymvp/fymvp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fyui/fyui.iml" filepath="$PROJECT_DIR$/fyui/fyui.iml" />
     </modules>
   </component>
 </project>

@@ -5,10 +5,12 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
+import android.widget.Toast;
 
 import com.fangyi.fymvp.base.SimpleBaseActivity;
 import com.fangyi.fymvp.base.SimpleBaseFragment;
 import com.fangyi.fyui.utils.FragmentUtils;
+import com.fangyi.sample.app.MyApplication;
 
 import butterknife.BindView;
 import me.majiajie.pagerbottomtabstrip.NavigationController;
@@ -76,6 +78,7 @@ public class MainActivity extends SimpleBaseActivity {
 
             }
         });
+
     }
 
 

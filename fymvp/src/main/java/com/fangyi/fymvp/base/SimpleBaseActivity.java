@@ -3,13 +3,12 @@ package com.fangyi.fymvp.base;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-
-import com.fangyi.fymvp.utils.NetworkUtils;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -23,18 +22,19 @@ import butterknife.Unbinder;
  * 说    明：简单的基础Activity
  * ================================================
  */
-public abstract class SimpleBaseActivity extends AppCompatActivity  {
+public abstract class SimpleBaseActivity extends AppCompatActivity {
 
     public Context mContext;
     public Handler mHandler;
-    private Unbinder unbinder;
+    private Unbinder mUnbinder;
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(getLayoutId());
-        unbinder = ButterKnife.bind(this);
+        mUnbinder = ButterKnife.bind(this);
 
         mContext = this;
         mHandler = new Handler();
@@ -52,8 +52,9 @@ public abstract class SimpleBaseActivity extends AppCompatActivity  {
         super.onDestroy();
         mContext = null;
         mHandler = null;
-        if (unbinder != Unbinder.EMPTY) unbinder.unbind();
-        unbinder = null;
+        if (mUnbinder != null && mUnbinder != Unbinder.EMPTY)
+            mUnbinder.unbind();
+        mUnbinder = null;
     }
 
     /**

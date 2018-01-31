@@ -1,0 +1,54 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 26
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath true
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url "https://jitpack.io" }
+    }
+}
+
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    //noinspection GradleCompatible
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+
+
+    compile 'com.airbnb.android:lottie:2.5.0-beta3'
+    compile 'com.afollestad.material-dialogs:core:0.9.6.0'
+
+    //  BottomNavigationView
+    compile 'me.majiajie:pager-bottom-tab-strip:2.2.5'
+
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.34'
+
+    compile 'com.github.bumptech.glide:glide:4.5.0'
+    compile 'com.github.bumptech.glide:compiler:4.5.0'
+}

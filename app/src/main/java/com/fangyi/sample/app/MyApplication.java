@@ -1,5 +1,7 @@
 package com.fangyi.sample.app;
 
+import android.content.Context;
+
 import com.fangyi.fymvp.base.BaseApplication;
 import com.fangyi.fyui.utils.Utils;
 
@@ -13,9 +15,13 @@ import com.fangyi.fyui.utils.Utils;
  */
 public class MyApplication extends BaseApplication {
 
+
     @Override
     public void onCreate() {
         super.onCreate();
         Utils.init(this);
+
+
     }
+
 }

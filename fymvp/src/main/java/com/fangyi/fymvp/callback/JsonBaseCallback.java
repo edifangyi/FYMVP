@@ -1,18 +1,28 @@
 package com.fangyi.fymvp.callback;
 
 
+import android.view.View;
+
 import com.fangyi.fymvp.basebean.BaseResponse;
 import com.fangyi.fymvp.basebean.SimpleResponse;
+import com.fangyi.fymvp.mvp.IView;
 import com.fangyi.fymvp.utils.Convert;
 import com.google.gson.stream.JsonReader;
 import com.lzy.okgo.callback.AbsCallback;
+import com.lzy.okgo.exception.HttpException;
+import com.lzy.okgo.exception.StorageException;
+import com.lzy.okgo.model.Response;
 import com.lzy.okgo.request.base.Request;
+import com.socks.library.KLog;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+import java.net.ConnectException;
+import java.net.SocketTimeoutException;
+import java.net.UnknownHostException;
 
 import okhttp3.ResponseBody;
 
@@ -29,9 +39,7 @@ public abstract class JsonBaseCallback<T> extends AbsCallback<T> {
     private Type type;
     private Class<T> clazz;
 
-
     public JsonBaseCallback() {
-
     }
 
     public JsonBaseCallback(Type type) {
@@ -42,6 +50,7 @@ public abstract class JsonBaseCallback<T> extends AbsCallback<T> {
         this.clazz = clazz;
     }
 
+
     @Override
     public void onStart(Request<T, ? extends Request> request) {
         super.onStart(request);
@@ -51,6 +60,35 @@ public abstract class JsonBaseCallback<T> extends AbsCallback<T> {
         // 可以随意添加,也可以什么都不传
         // 还可以在这里对所有的参数进行加密，均在这里实现
     }
+
+
+    /**
+     * 异常
+     *
+     * @param response
+     */
+    @Override
+    public void onError(Response<T> response) {
+
+        Throwable exception = response.getException();
+
+        if (exception instanceof UnknownHostException || exception instanceof ConnectException) {
+            response.setException(new Throwable("网络连接失败，请连接网络！"));
+        } else if (exception instanceof SocketTimeoutException) {
+            response.setException(new Throwable("网络请求超时"));
+        } else if (exception instanceof HttpException) {
+            response.setException(new Throwable("服务器响应码404和500了，知道该怎么办吗？"));
+        } else if (exception instanceof StorageException) {
+            response.setException(new Throwable("sd卡不存在或者没有权限"));
+        } else if (exception instanceof IllegalStateException) {
+            response.setException(new Throwable("啊啊啊"));
+        } else if (exception instanceof IllegalArgumentException) {
+            response.setException(new Throwable("出现意外了！"));
+        }
+
+        super.onError(response);
+    }
+
     /**
      * 该方法是子线程处理，不能做ui相关的工作
      * 主要作用是解析网络返回的 response 对象,生产onSuccess回调中需要的数据对象
@@ -58,6 +96,7 @@ public abstract class JsonBaseCallback<T> extends AbsCallback<T> {
      */
     @Override
     public T convertResponse(okhttp3.Response response) throws Throwable {
+
         if (type == null) {
             if (clazz == null) {
                 // 如果没有通过构造函数传进来，就自动解析父类泛型的真实类型（有局限性，继承后就无法解析到）
@@ -78,8 +117,8 @@ public abstract class JsonBaseCallback<T> extends AbsCallback<T> {
     }
 
 
-
     private T parseClass(okhttp3.Response response, Class<?> rawType) throws Exception {
+
         if (rawType == null) return null;
         ResponseBody body = response.body();
         if (body == null) return null;
@@ -142,7 +181,6 @@ public abstract class JsonBaseCallback<T> extends AbsCallback<T> {
             }
         }
     }
-
 
 
     private T parseType(okhttp3.Response response, Type type) throws Exception {

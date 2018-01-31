@@ -1,7 +1,10 @@
 package com.fangyi.fymvp.base;
 
 import android.app.Activity;
-import android.content.Context;
+
+import com.fangyi.fymvp.mvp.IModel;
+import com.fangyi.fymvp.mvp.IPresenter;
+import com.fangyi.fymvp.mvp.IView;
 
 /**
  * ================================================

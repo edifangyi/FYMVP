@@ -5,12 +5,18 @@ import com.fangyi.fymvp.basebean.SimpleResponse;
 import com.fangyi.fymvp.utils.Convert;
 import com.google.gson.stream.JsonReader;
 import com.lzy.okgo.convert.Converter;
+import com.lzy.okgo.exception.HttpException;
+import com.lzy.okgo.exception.StorageException;
+import com.lzy.okgo.model.Response;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+import java.net.ConnectException;
+import java.net.SocketTimeoutException;
+import java.net.UnknownHostException;
 
 import okhttp3.ResponseBody;
 
@@ -58,7 +64,6 @@ public class JsonBaseConvert<T> implements Converter<T> {
             return parseType(response, type);
         }
     }
-
 
 
     private T parseClass(okhttp3.Response response, Class<?> rawType) throws Exception {
@@ -124,7 +129,6 @@ public class JsonBaseConvert<T> implements Converter<T> {
             }
         }
     }
-
 
 
     private T parseType(okhttp3.Response response, Type type) throws Exception {

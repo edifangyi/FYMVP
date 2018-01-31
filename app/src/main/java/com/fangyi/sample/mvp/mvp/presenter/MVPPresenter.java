@@ -1,8 +1,14 @@
 package com.fangyi.sample.mvp.mvp.presenter;
 
+import android.icu.text.MessagePattern;
+import android.util.Log;
+
+import com.airbnb.lottie.L;
 import com.fangyi.fymvp.basebean.BaseResponse;
 import com.fangyi.fymvp.callback.JsonBaseCallback;
 import com.fangyi.fymvp.callback.JsonBaseConvert;
+import com.fangyi.fymvp.mvp.IModel;
+import com.fangyi.sample.ModelResult;
 import com.fangyi.sample.mvp.api.ApiParams;
 import com.fangyi.sample.mvp.api.ApiUrls;
 import com.fangyi.sample.mvp.bean.LoginBean;
@@ -29,40 +35,28 @@ public class MVPPresenter extends MVPContract.Presenter {
     @Override
     public void doSuccess(String name, String password) {
 
-        //将来改成全局监听
-        if (!mView.isNetworkConnected()) {
-            mView.onErrorView("没有网络");
+        if (!mView.isNetworkConnected()){
+            mView.onError("没有网络");
             return;
         }
 
-        if (!mView.isNetworkConnected())
 
-            KLog.e("==========回家啊哈哈===");
-
-        mModel.doSuccess(ApiParams.doSuccess(name, password))
-                //自带Dialog的回调
-                .execute(new DialogCallback<BaseResponse<LoginBean>>(mActivity) {
+        mModel.<BaseResponse<LoginBean>>doSuccer(
+                ApiUrls.doSuccess,
+                ApiParams.doSuccess(name, password),
+                new IModel.Listener<BaseResponse<LoginBean>>() {
                     @Override
-                    public void onSuccess(Response<BaseResponse<LoginBean>> response) {
-
-                        //回调都在主线程中，可以在这里直接更新UI
-
-                        //判断View还存在不，以免碰到请求网络的过程中、Activity销毁
-                        if (isViewAttached()) {
-                            mView.onSuccessView(response.body().data);
-                        }
-
+                    public void onResult(BaseResponse<LoginBean> response) {
+                        mView.onSuccessView(response.data);
                     }
 
-
                     @Override
-                    public void onError(Response<BaseResponse<LoginBean>> response) {
-                        super.onError(response);
-                        if (isViewAttached()) {
-                            mView.onErrorView("失败了");
-                        }
+                    public void onError(String mssage) {
+                        mView.onError(mssage);
                     }
                 });
+
+
     }
 
     @Override
@@ -84,27 +78,47 @@ public class MVPPresenter extends MVPContract.Presenter {
             url = ApiUrls.doError;
         }
 
-        //不需要 mModel 层的请求方式
-        OkGo.<BaseResponse<LoginBean>>get(url)
-                .params(ApiParams.doSuccess(name, password))
-                .execute(new JsonBaseCallback<BaseResponse<LoginBean>>() {
+//        //不需要 mModel 层的请求方式
+//        OkGo.<BaseResponse<LoginBean>>get(url)
+//                .params(ApiParams.doSuccess(name, password))
+//                .execute(new JsonBaseCallback<BaseResponse<LoginBean>>() {
+//                    @Override
+//                    public void onSuccess(Response<BaseResponse<LoginBean>> response) {
+//                        if (isViewAttached()) {
+//                            mView.onSuccessView(response.body().data);
+//                        }
+//                    }
+//
+//
+//                    @Override
+//                    public void onError(Response<BaseResponse<LoginBean>> response) {
+//                        super.onError(response);
+//                        if (isViewAttached()) {
+//                            mView.onErrorView(response.getException().getMessage());
+//                        }
+//
+//                    }
+//                });
+
+
+        mModel.<BaseResponse<LoginBean>>get(
+                ApiUrls.doSuccess,
+                ApiParams.doSuccess(name, password)).
+                execute(new JsonBaseCallback<BaseResponse<LoginBean>>() {
                     @Override
                     public void onSuccess(Response<BaseResponse<LoginBean>> response) {
-                        if (isViewAttached()) {
-                            mView.onSuccessView(response.body().data);
-                        }
-                    }
 
+
+                    }
 
                     @Override
                     public void onError(Response<BaseResponse<LoginBean>> response) {
                         super.onError(response);
-                        if (isViewAttached()) {
-                            mView.onErrorView(response.getException().getMessage());
-                        }
 
+                        mView.onError(response.getException().getMessage());
                     }
                 });
+
 
     }
 

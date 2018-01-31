@@ -2,6 +2,7 @@ package com.fangyi.fymvp.base;
 
 import android.os.Bundle;
 
+import com.fangyi.fymvp.mvp.IView;
 import com.fangyi.fymvp.utils.ClassUtil;
 import com.fangyi.fymvp.utils.NetworkUtils;
 
