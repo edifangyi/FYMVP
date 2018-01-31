@@ -1,8 +1,7 @@
 package com.fangyi.sample.mvp.mvp.presenter;
 
-import com.fangyi.fymvp.basebean.BaseResponse;
-
 import com.fangyi.fymvp.mvp.IModel;
+import com.fangyi.sample.basebean.BaseResponse;
 import com.fangyi.sample.mvp.api.ApiParams;
 import com.fangyi.sample.mvp.api.ApiUrls;
 import com.fangyi.sample.mvp.bean.LoginBean;

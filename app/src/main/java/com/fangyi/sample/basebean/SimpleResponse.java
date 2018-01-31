@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.fangyi.fymvp.basebean;
+package com.fangyi.sample.basebean;
 
 import java.io.Serializable;
 
@@ -24,25 +24,17 @@ import java.io.Serializable;
  * 日    期：2018/1/25
  * ================================================
  */
-public class BaseResponse<T> implements Serializable {
+public class SimpleResponse implements Serializable {
 
-    private static final long serialVersionUID = 5213230387175987834L;
+    private static final long serialVersionUID = -1477609349345966116L;
 
     public int code;
     public String message;
 
-    public T data;
-
-    public boolean success() {
-        return "1".equals(code);
-    }
-
-    @Override
-    public String toString() {
-        return "BaseResponse{\n" +//
-               "\tcode=" + code + "\n" +//
-               "\tmsg='" + message + "\'\n" +//
-               "\tdata=" + data + "\n" +//
-               '}';
+    public BaseResponse toBaseResponse() {
+        BaseResponse baseResponse = new BaseResponse();
+        baseResponse.code = code;
+        baseResponse.message = message;
+        return baseResponse;
     }
 }

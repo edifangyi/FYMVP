@@ -1,12 +1,9 @@
 package com.fangyi.fymvp.base;
 
-import com.fangyi.fymvp.callback.JsonBaseCallback;
 import com.fangyi.fymvp.mvp.IModel;
 import com.lzy.okgo.OkGo;
-import com.lzy.okgo.model.Response;
 import com.lzy.okgo.request.GetRequest;
 import com.lzy.okgo.request.PostRequest;
-import com.socks.library.KLog;
 
 import java.util.Map;
 
