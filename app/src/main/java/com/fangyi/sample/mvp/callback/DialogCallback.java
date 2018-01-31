@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.view.Window;
 
-import com.fangyi.fymvp.callback.JsonBaseCallback;
 import com.lzy.okgo.request.base.Request;
 
 /**

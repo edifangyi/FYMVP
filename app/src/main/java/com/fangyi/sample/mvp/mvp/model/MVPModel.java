@@ -3,9 +3,9 @@ package com.fangyi.sample.mvp.mvp.model;
 
 import com.fangyi.fymvp.base.BaseModel;
 import com.fangyi.fymvp.basebean.BaseResponse;
-import com.fangyi.fymvp.callback.JsonBaseCallback;
-import com.fangyi.fymvp.mvp.IModel;
+
 import com.fangyi.sample.mvp.bean.LoginBean;
+import com.fangyi.sample.mvp.callback.JsonBaseCallback;
 import com.fangyi.sample.mvp.mvp.contract.MVPContract;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;

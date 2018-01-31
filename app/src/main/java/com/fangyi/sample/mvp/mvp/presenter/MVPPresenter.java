@@ -1,23 +1,17 @@
 package com.fangyi.sample.mvp.mvp.presenter;
 
-import android.icu.text.MessagePattern;
-import android.util.Log;
-
-import com.airbnb.lottie.L;
 import com.fangyi.fymvp.basebean.BaseResponse;
-import com.fangyi.fymvp.callback.JsonBaseCallback;
-import com.fangyi.fymvp.callback.JsonBaseConvert;
+
 import com.fangyi.fymvp.mvp.IModel;
-import com.fangyi.sample.ModelResult;
 import com.fangyi.sample.mvp.api.ApiParams;
 import com.fangyi.sample.mvp.api.ApiUrls;
 import com.fangyi.sample.mvp.bean.LoginBean;
-import com.fangyi.sample.mvp.callback.DialogCallback;
+import com.fangyi.sample.mvp.callback.JsonBaseCallback;
+import com.fangyi.sample.mvp.callback.JsonBaseConvert;
 import com.fangyi.sample.mvp.mvp.contract.MVPContract;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
 import com.lzy.okrx2.adapter.ObservableBody;
-import com.socks.library.KLog;
 
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -35,7 +29,7 @@ public class MVPPresenter extends MVPContract.Presenter {
     @Override
     public void doSuccess(String name, String password) {
 
-        if (!mView.isNetworkConnected()){
+        if (!mView.isNetworkConnected()) {
             mView.onError("没有网络");
             return;
         }
@@ -117,6 +111,7 @@ public class MVPPresenter extends MVPContract.Presenter {
 
                         mView.onError(response.getException().getMessage());
                     }
+
                 });
 
 
