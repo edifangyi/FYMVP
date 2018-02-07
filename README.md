@@ -36,6 +36,17 @@ android {
     }
 }
 ```
+* 因为框架内已经提供了解决超过 65k 方法数 ，故你的项目在依赖框架后，需要你的 Application 继承 BaseApplication 或 因为已经继承其他 Application类 而不愿继承的可以重写方法
+
+```groovy
+protected void attachBaseContext(Context base) {
+   super.attachBaseContext(base);
+   MultiDex.install(this);
+}
+```
+可以解决4.4系统上Caused by: java.lang.ClassNotFoundException: Didn't find class"XXX" on path: DexPathList[[zip fill 问题
+
+ [multiDexEnabled 遇坑简记.](https://www.jianshu.com/p/cddfc89ce947)
 
 ## Usage
 > 没想好怎么写，自己先看Demo吧
