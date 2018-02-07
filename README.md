@@ -36,7 +36,7 @@ android {
     }
 }
 ```
-* 因为框架内已经提供了解决超过 65k 方法数 ，故你的项目在依赖框架后，需要你的 Application 继承 BaseApplication 或 因为已经继承其他 Application类 而不愿继承的可以重写方法
+* 因为框架内已经提供了解决超过 65k 方法数 ，故你的项目在依赖框架后，需要你的 Application 继承 BaseApplication 或 已经继承其他 Application类 而不愿继承的可以重写方法
 
 ```groovy
 protected void attachBaseContext(Context base) {
