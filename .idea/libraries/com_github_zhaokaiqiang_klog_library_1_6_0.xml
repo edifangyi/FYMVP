@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="com.github.zhaokaiqiang.klog:library-1.6.0">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/library-1.6.0.aar/08aebcddbe92032d706e7e904e60b891/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/library-1.6.0.aar/08aebcddbe92032d706e7e904e60b891/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.zhaokaiqiang.klog/library/1.6.0/18d60bc9b75c5a9e1e7133a3ac6a91087f07203d/library-1.6.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

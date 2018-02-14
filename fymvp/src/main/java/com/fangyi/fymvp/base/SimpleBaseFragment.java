@@ -36,7 +36,6 @@ public abstract class SimpleBaseFragment extends Fragment {
         mActivity = (SimpleBaseActivity) getActivity();
         mContext = getActivity();
 
-
         mUnbinder = ButterKnife.bind(this, rootView);
         init(savedInstanceState);
 

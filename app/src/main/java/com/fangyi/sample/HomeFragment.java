@@ -1,7 +1,6 @@
 package com.fangyi.sample;
 
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -11,6 +10,7 @@ import com.fangyi.sample.adapter.HomeAdapter;
 import com.fangyi.sample.entity.HomeItem;
 import com.fangyi.sample.mvp.ui.activity.MVPActivity;
 import com.fangyi.sample.ui.GlideGifActivity;
+import com.fangyi.sample.ui.hencoder.HenCoderActivity;
 import com.fangyi.sample.ui.ToastActivity;
 
 import java.util.ArrayList;
@@ -94,9 +94,9 @@ public class HomeFragment extends SimpleBaseFragment {
                 mDataList.add(new HomeItem("MVP框架演示", R.mipmap.home_mvp_ic_architecture, MVPActivity.createIntent(mContext)));
                 break;
             case "UI":
-                mDataList.add(new HomeItem("增强Toast", R.mipmap.home_ui_ic_toast_0, ToastActivity.createIntent(mContext)));
-                mDataList.add(new HomeItem("普通Toast", R.mipmap.home_ui_ic_toast_0, ToastActivity.createIntent(mContext)));
-                mDataList.add(new HomeItem("Glide", R.mipmap.home_ui_ic_toast_0, GlideGifActivity.createIntent(mContext)));
+                mDataList.add(new HomeItem("增强Toast", R.mipmap.home_ui_ic_toast, ToastActivity.createIntent(mContext)));
+                mDataList.add(new HomeItem("Glide", R.mipmap.home_ui_ic_toast, GlideGifActivity.createIntent(mContext)));
+                mDataList.add(new HomeItem("自定义控件学习", R.mipmap.home_ui_ic_custom, HenCoderActivity.createIntent(mContext)));
 
                 break;
             case "Utils":
