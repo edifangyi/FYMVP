@@ -49,6 +49,10 @@ dependencies {
 
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.34'
 
-    compile 'com.github.bumptech.glide:glide:4.5.0'
-    compile 'com.github.bumptech.glide:compiler:4.5.0'
+//    compile 'com.github.bumptech.glide:glide:4.5.0'
+//    compile 'com.github.bumptech.glide:compiler:4.5.0'
+
+    //IMUI
+    compile 'cn.jiguang.imui:messagelist:0.5.8'
+    compile 'cn.jiguang.imui:chatinput:0.6.3'
 }

@@ -8,7 +8,6 @@ import android.widget.ListView;
 
 import com.fangyi.fymvp.base.SimpleBaseActivity;
 import com.fangyi.sample.R;
-import com.fangyi.sample.ui.hencoder.hencoder_1.HenCoder_1_Activity;
 
 import butterknife.BindView;
 
@@ -22,7 +21,7 @@ import butterknife.BindView;
  * ================================================
  */
 public class HenCoderActivity extends SimpleBaseActivity {
-    public static final String[] ITEMS = {"HenCoder 绘制 1 练习项目"};
+    public static final String[] ITEMS = {"HenCoder 绘制 1 练习项目", "HenCoder 绘制 2 练习项目"};
     @BindView(R.id.listView)
     ListView mListView;
 
@@ -43,7 +42,8 @@ public class HenCoderActivity extends SimpleBaseActivity {
         mListView.setOnItemClickListener((parent, view, position, id) -> {
             switch (position) {
                 case 0:
-                    startActivity(HenCoder_1_Activity.createIntent(mContext));
+                    break;
+                case 1:
                     break;
             }
         });
@@ -51,4 +51,10 @@ public class HenCoderActivity extends SimpleBaseActivity {
     }
 
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        finish();
+    }
 }

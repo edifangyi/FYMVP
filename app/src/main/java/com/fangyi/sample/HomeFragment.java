@@ -12,6 +12,7 @@ import com.fangyi.sample.mvp.ui.activity.MVPActivity;
 import com.fangyi.sample.ui.GlideGifActivity;
 import com.fangyi.sample.ui.hencoder.HenCoderActivity;
 import com.fangyi.sample.ui.ToastActivity;
+import com.fangyi.sample.ui.imui.IMUIActivity;
 
 import java.util.ArrayList;
 
@@ -97,6 +98,7 @@ public class HomeFragment extends SimpleBaseFragment {
                 mDataList.add(new HomeItem("增强Toast", R.mipmap.home_ui_ic_toast, ToastActivity.createIntent(mContext)));
                 mDataList.add(new HomeItem("Glide", R.mipmap.home_ui_ic_toast, GlideGifActivity.createIntent(mContext)));
                 mDataList.add(new HomeItem("自定义控件学习", R.mipmap.home_ui_ic_custom, HenCoderActivity.createIntent(mContext)));
+                mDataList.add(new HomeItem("IM UI", R.mipmap.home_ui_ic_custom, IMUIActivity.createIntent(mContext)));
 
                 break;
             case "Utils":

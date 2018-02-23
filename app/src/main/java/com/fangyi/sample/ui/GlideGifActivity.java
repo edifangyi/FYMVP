@@ -3,13 +3,8 @@ package com.fangyi.sample.ui;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
 import android.widget.ImageView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.Priority;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.bumptech.glide.request.RequestOptions;
 import com.fangyi.fymvp.base.SimpleBaseActivity;
 import com.fangyi.sample.R;
 
@@ -42,23 +37,23 @@ public class GlideGifActivity extends SimpleBaseActivity {
 
     @Override
     protected void init(Bundle savedInstanceState) {
-        RequestOptions options = new RequestOptions()
-                .centerCrop()
-                //.placeholder(R.mipmap.ic_launcher_round)
-                .error(android.R.drawable.stat_notify_error)
-                .priority(Priority.HIGH)
-                //.skipMemoryCache(true)
-                .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC);
-
-        Glide.with(mContext)
-                .asGif()
-                .load(ContextCompat.getDrawable(mContext, R.drawable.building))
-                .apply(options)
-                .into(mImageView);
-
-
-        Glide.with(mContext)
-                .load(ContextCompat.getDrawable(mContext, R.mipmap.home_mvp_ic_architecture))
-                .into(mImageView1);
+//        RequestOptions options = new RequestOptions()
+//                .centerCrop()
+//                //.placeholder(R.mipmap.ic_launcher_round)
+//                .error(android.R.drawable.stat_notify_error)
+//                .priority(Priority.HIGH)
+//                //.skipMemoryCache(true)
+//                .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC);
+//
+//        Glide.with(mContext)
+//                .asGif()
+//                .load(ContextCompat.getDrawable(mContext, R.drawable.building))
+//                .apply(options)
+//                .into(mImageView);
+//
+//
+//        Glide.with(mContext)
+//                .load(ContextCompat.getDrawable(mContext, R.mipmap.home_mvp_ic_architecture))
+//                .into(mImageView1);
     }
 }
