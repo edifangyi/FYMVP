@@ -5,14 +5,13 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
-    <!--IMUIActivity-->
+    <!-- IMUIActivity -->
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-
 
     <application
         android:name=".app.MyApplication"
@@ -21,7 +20,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".MainActivity">
+
+        <!-- 主框架 -->
+        <activity android:name=".app.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,18 +30,25 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".mvp.ui.activity.MVPActivity" />
+        <!-- Module MVP -->
+        <activity android:name=".module_mvp.app_bing.ui.BingSplashActivity" />
 
-        <activity android:name=".ui.ToastActivity" />
-        <activity android:name=".ui.GlideGifActivity" />
-        <activity android:name=".ui.hencoder.HenCoderActivity" />
+        <activity android:name=".module_mvp.app_bing.ui.BingMainActivity" />
 
+
+        <activity android:name=".module_mvp.app_demo.ui.activity.DemoToolbarActivity" />
+        <activity android:name=".module_mvp.app_demo.ui.activity.DemoLazyPagerActivity" />
+
+        <!-- Module UI -->
         <activity
-            android:name=".ui.imui.IMUIActivity"
+            android:name=".module_ui.imui.IMUIActivity"
             android:windowSoftInputMode="adjustResize" />
-        <activity
-            android:name=".ui.imui.IMUIVideoActivity"
-            android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen" />
+        <activity android:name=".module_ui.imui.IMUIVideoActivity" />
+        <!-- Module Utils -->
+
+
+        <!-- Module Github -->
+
 
     </application>
 

@@ -12,10 +12,10 @@ import com.fangyi.fymvp.utils.NetworkUtils;
  * 作    者：FANGYI <87649669@qq.com>
  * 版    本：1.0.0
  * 日    期：2018/1/23
- * 说    明：带有Mvp的Activity
+ * 说    明：带有Mvp的Fragment
  * ================================================
  */
-public abstract class MvpBaseFragment<P extends BasePresenter, M extends BaseModel> extends SimpleBaseFragment implements IView {
+public abstract class MvpBaseFragment<P extends BasePresenter, M extends BaseModel> extends BaseFragment implements IView {
 
     public P mPresenter;
     public M mModel;

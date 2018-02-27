@@ -1,0 +1,40 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_tab_default"
+        android:title="恢复默认"
+        app:showAsAction="collapseActionView" />
+    <item
+        android:id="@+id/menu_tab_indicator_color"
+        android:title="修改指示条的颜色"
+        app:showAsAction="collapseActionView" />
+    <item
+        android:id="@+id/menu_tab_indicator_height"
+        android:title="修改指示条的高度"
+        app:showAsAction="collapseActionView" />
+    <item
+        android:id="@+id/menu_tab_hide_indicator_height"
+        android:title="隐藏指示条-高度为0"
+        app:showAsAction="collapseActionView" />
+    <item
+        android:id="@+id/menu_tab_hide_indicator_color"
+        android:title="隐藏指示条-颜色为透明"
+        app:showAsAction="collapseActionView" />
+
+    <item
+        android:id="@+id/menu_tab_selected_text_color"
+        android:title="Tab 被选中字体颜色"
+        app:showAsAction="collapseActionView" />
+
+    <item
+        android:id="@+id/menu_tab_text_color"
+        android:title="Tab 未被选中字体颜色"
+        app:showAsAction="collapseActionView" />
+
+    <item
+        android:id="@+id/menu_tab_mode"
+        android:title="TabMode"
+        app:showAsAction="collapseActionView" />
+
+</menu>

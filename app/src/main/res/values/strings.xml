@@ -12,7 +12,6 @@
     <string name="rationale_camera">This app needs access camera.</string>
 
 
-
     <string-array name="messages_array">
         <item>How are you</item>
         <item>Fine. And you?</item>
