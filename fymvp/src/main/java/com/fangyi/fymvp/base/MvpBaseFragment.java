@@ -23,7 +23,6 @@ public abstract class MvpBaseFragment<P extends BasePresenter, M extends BaseMod
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         mPresenter = ClassUtil.getT(this, 0);
         mModel = ClassUtil.getT(this, 1);
         if (mPresenter != null) {
@@ -31,6 +30,7 @@ public abstract class MvpBaseFragment<P extends BasePresenter, M extends BaseMod
             mPresenter.attachView(this);
             mPresenter.attachModel(mModel);
         }
+        super.onCreate(savedInstanceState);
     }
 
     @Override
